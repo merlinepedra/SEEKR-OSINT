@@ -1,49 +1,3 @@
-## Get Person by ID
-
-**Curl Request:**
-
-```sh
-curl -X GET http://localhost:8080/people/1
-```
-
-**Response:**
-
-```json
-{
-    "accounts": {},
-    "address": "",
-    "age": 0,
-    "bday": "",
-    "civilstatus": "",
-    "club": "",
-    "education": "",
-    "email": {},
-    "hobbies": "",
-    "id": "1",
-    "kids": "",
-    "legal": "",
-    "maidenname": "",
-    "military": "",
-    "name": "",
-    "notaccounts": null,
-    "notes": "",
-    "occupation": "",
-    "pets": "",
-    "phone": "",
-    "pictures": {},
-    "political": "",
-    "prevoccupation": "",
-    "relations": null,
-    "religion": "",
-    "sources": {},
-    "ssn": "",
-    "tags": null
-}
-```
-
-**Status Code:** 200
-
-
 ## Get Person which does not exsist
 
 **Curl Request:**
@@ -128,5 +82,51 @@ curl -X POST http://localhost:8080/person \
 ```
 
 **Status Code:** 201
+
+
+## Get Person by ID
+
+**Curl Request:**
+
+```sh
+curl -X GET http://localhost:8080/people/1
+```
+
+**Response:**
+
+```json
+{
+    "accounts": {},
+    "address": "",
+    "age": 0,
+    "bday": "",
+    "civilstatus": "",
+    "club": "",
+    "education": "",
+    "email": {},
+    "hobbies": "",
+    "id": "1",
+    "kids": "",
+    "legal": "",
+    "maidenname": "",
+    "military": "",
+    "name": "",
+    "notaccounts": null,
+    "notes": "",
+    "occupation": "",
+    "pets": "",
+    "phone": "",
+    "pictures": {},
+    "political": "",
+    "prevoccupation": "",
+    "relations": null,
+    "religion": "",
+    "sources": {},
+    "ssn": "",
+    "tags": null
+}
+```
+
+**Status Code:** 200
 
 

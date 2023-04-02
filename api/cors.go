@@ -6,7 +6,11 @@ import (
 	"net/http"
 )
 
-func HandleCorsRequest(config ApiConfig, c *gin.Context) {
+func HandleCorsRequestHandler(config ApiConfig, c *gin.Context) {
+	HandleCorsRequest(config, c, nil)
+}
+
+func HandleCorsRequest(config ApiConfig, c *gin.Context, client *http.Client) {
 	corsURL := c.Query("url")
 	if corsURL == "" {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "url query parameter is required"})
@@ -28,7 +32,9 @@ func HandleCorsRequest(config ApiConfig, c *gin.Context) {
 	}
 
 	// Make a request to the target URL
-	client := &http.Client{}
+	if client == nil {
+		client = &http.Client{}
+	}
 	targetResp, err := client.Do(targetReq)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
