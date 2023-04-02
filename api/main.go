@@ -50,7 +50,10 @@ func CheckPersonExists(config ApiConfig, id string) bool {
 func ServeApi(config ApiConfig) {
 	config = LoadJson(config)
 	SetupLogger(config)
+
+    // Add CORS proxy middleware to "/cors" endpoint
 	config.GinRouter = gin.Default()
+  config.GinRouter.GET("/cors/*proxyPath", Handler(HandleCorsRequest, config))
 	config.GinRouter.GET("/", Handler(GetDataBase, config))                                      // return entire database
 	config.GinRouter.GET("/deep/github/:username", Handler(GithubInfoDeepRequest, config))       // deep investigation of github account // FIXME
 	config.GinRouter.GET("/search/google/:query", Handler(GoogleRequest, config))                // get results from google
