@@ -37,3 +37,23 @@ func LoadBadgerDB(config ApiConfig) ApiConfig {
 	log.Println("loading badgerdb database from file")
 	return config
 }
+
+func DefaultSaveBadgerDB(config ApiConfig) {
+  db, err := badger.Open(badger.DefaultOptions(config.DataBaseFile))
+  CheckAndLog(err, "error opening badgerdb", config)
+  defer db.Close()
+
+  txn := db.NewTransaction(true)
+  defer txn.Discard()
+
+  jsonBytes, err := json.MarshalIndent(config.DataBase, "", "\t")
+  CheckAndLog(err, "error saving the database to file", config)
+
+  err = txn.Set([]byte("data"), jsonBytes)
+  CheckAndLog(err, "error setting value in badgerdb", config)
+
+  err = txn.Commit()
+  CheckAndLog(err, "error committing transaction in badgerdb", config)
+
+  log.Println("Saving badgerdb to file")
+}

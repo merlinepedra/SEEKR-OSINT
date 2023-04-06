@@ -49,7 +49,7 @@ func CheckPersonExists(config ApiConfig, id string) bool {
 }
 
 func ServeApi(config ApiConfig) {
-	config = LoadJson(config)
+	config = LoadBadgerDB(config)
 	SetupLogger(config)
 	config.GinRouter = gin.Default()
 	config.GinRouter.GET("/", Handler(GetDataBase, config))                                      // return entire database
@@ -183,8 +183,8 @@ func PostPerson(config ApiConfig, c *gin.Context) { // c.BindJSON is a person no
 	}
 
 	person, _ = person.Parse(config)
-  person,_= person.CheckMail(config)
-  // no error handeling doue to no error impl
+	person, _ = person.CheckMail(config)
+	// no error handeling doue to no error impl
 	//if err := c.BindJSON(&person); err != nil {
 	//	c.IndentedJSON(http.StatusAccepted, gin.H{"message": "invalid person"})
 	//	return
