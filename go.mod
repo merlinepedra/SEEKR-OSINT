@@ -14,7 +14,7 @@ require (
 	github.com/nyaruka/phonenumbers v1.1.6
 	github.com/rocketlaunchr/google-search v1.1.5
 	github.com/sundowndev/phoneinfoga/v2 v2.10.4
-	golang.org/x/oauth2 v0.7.0
+	golang.org/x/oauth2 v0.8.0
 )
 
 require (
@@ -75,8 +75,8 @@ require (
 	go.opencensus.io v0.23.0 // indirect
 	golang.org/x/arch v0.1.0 // indirect
 	golang.org/x/crypto v0.7.0 // indirect
-	golang.org/x/net v0.9.0 // indirect
-	golang.org/x/sys v0.7.0 // indirect
+	golang.org/x/net v0.10.0 // indirect
+	golang.org/x/sys v0.8.0 // indirect
 	golang.org/x/text v0.9.0 // indirect
 	golang.org/x/time v0.0.0-20201208040808-7e3f01d25324 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
